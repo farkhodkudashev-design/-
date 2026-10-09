@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f5">
+  <meta name="description" content="NEXORA — технологии, электроника, стиль и товары для современного образа жизни.">
+  <title>NEXORA — Магазин нового поколения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+  <div class="announcement">
+    <span>✦</span> NEXORA — технологии нового поколения
+    <span class="announcement-separator">|</span>
+    Бесплатная доставка от 1 000 000 сум
+    <a href="deals.html">Все акции →</a>
+  </div>
+
+  <header class="header" id="top">
+    <div class="header-main container">
+      <button class="icon-btn mobile-menu-btn" id="menuToggle" aria-label="Открыть меню">☰</button>
+      <a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a>
+
+      <form class="search-box" id="searchForm">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Поиск товаров, брендов и категорий..." autocomplete="off">
+        <button type="submit" class="search-submit">Найти</button>
+        <div class="search-results" id="searchResults"></div>
+      </form>
+
+      <div class="header-actions">
+        <label class="compact-select">
+          <span>🌐</span>
+          <select id="languageSelect" aria-label="Язык">
+            <option value="ru">RU</option>
+            <option value="uz">UZ</option>
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="de">DE</option>
+            <option value="es">ES</option>
+            <option value="zh">中文</option>
+            <option value="ko">한국어</option>
+          </select>
+        </label>
+        <label class="compact-select">
+          <select id="currencySelect" aria-label="Валюта">
+            <option value="UZS">UZS</option>
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+          </select>
+        </label>
+        <button class="icon-btn theme-btn" id="themeToggle" aria-label="Сменить тему">☾</button>
+        <a class="header-icon" href="wishlist.html" aria-label="Избранное">♡<span class="counter" id="wishlistCount">0</span></a>
+        <a class="header-icon" href="cart.html" aria-label="Корзина">🛒<span class="counter" id="cartCount">0</span></a>
+        <a class="header-icon account-link" href="login.html" aria-label="Аккаунт">♙</a>
+      </div>
+    </div>
+
+    <nav class="navigation container" id="mainNav">
+      <a href="categories.html" data-i18n="catalog">Каталог</a>
+      <a href="brands.html" data-i18n="brands">Бренды</a>
+      <a href="deals.html" data-i18n="deals">Акции</a>
+      <a href="catalog.html?sort=new" data-i18n="new">Новинки</a>
+      <a href="catalog.html?sort=popular" data-i18n="popular">Популярное</a>
+      <a href="delivery.html" data-i18n="delivery">Доставка</a>
+      <a href="contact.html" data-i18n="support">Поддержка</a>
+      <span class="nav-spacer"></span>
+      <span class="delivery-note">⌖ Доставка по Узбекистану</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="live-dot"></span> НОВАЯ ЭРА ПОКУПОК</span>
+        <h1 id="heroTitle">Технологии<br>нового <span>поколения.</span></h1>
+        <p id="heroDescription">Откройте мир инноваций. Устройства, стиль и технологии, которые делают каждый день лучше.</p>
+        <div class="hero-buttons">
+          <a href="catalog.html" class="btn btn-dark" data-i18n="shopNow">Перейти к покупкам <span>↗</span></a>
+          <a href="deals.html" class="btn btn-outline" data-i18n="viewDeals">Смотреть акции</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-avatars"><span>A</span><span>N</span><span>M</span></div>
+          <div><strong>10 000+</strong><small>довольных покупателей</small></div>
+          <div class="trust-divider"></div>
+          <div><strong>4.9/5</strong><small>средний рейтинг</small></div>
+        </div>
+        <div class="hero-pagination"><span class="active"></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-glow"></div>
+        <div class="hero-badge"><span>✦</span><div><strong>NEW COLLECTION</strong><small>2026 / 2027</small></div></div>
+        <img id="heroImage" src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=85" alt="Современный смартфон">
+        <div class="hero-floating-card">
+          <span class="floating-icon">✦</span>
+          <div><small>Выбор недели</small><strong>Smart devices</strong></div>
+          <span class="floating-arrow">↗</span>
+        </div>
+        <div class="hero-side-label">DESIGNED FOR YOUR FUTURE — NEXORA</div>
+      </div>
+      <button class="hero-arrow hero-prev" id="heroPrev" aria-label="Предыдущий слайд">←</button>
+      <button class="hero-arrow hero-next" id="heroNext" aria-label="Следующий слайд">→</button>
+    </section>
+
+    <section class="benefits container">
+      <div class="benefit"><span class="benefit-icon">↗</span><div><strong>Быстрая доставка</strong><small>По всей стране</small></div></div>
+      <div class="benefit"><span class="benefit-icon">◇</span><div><strong>Оригинальные товары</strong><small>Проверенные бренды</small></div></div>
+      <div class="benefit"><span class="benefit-icon">↺</span><div><strong>Лёгкий возврат</strong><small>Покупайте уверенно</small></div></div>
+      <div class="benefit"><span class="benefit-icon">♧</span><div><strong>Поддержка 24/7</strong><small>Всегда готовы помочь</small></div></div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading">
+        <div><span class="eyebrow">ИЗУЧАЙТЕ NEXORA</span><h2>Найди свою <span>категорию.</span></h2></div>
+        <a href="categories.html" class="text-link">Все категории ↗</a>
+      </div>
+      <div class="category-grid" id="categoryGrid">
+        <a href="catalog.html?category=smartphones" class="category-card category-large">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80" alt="Смартфоны">
+          <div><span>01 / MOBILE</span><h3>Смартфоны</h3><p>Устройства нового уровня ↗</p></div>
+        </a>
+        <a href="catalog.html?category=laptops" class="category-card">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80" alt="Ноутбуки">
+          <div><span>02 / COMPUTING</span><h3>Ноутбуки</h3><p>Создавай больше ↗</p></div>
+        </a>
+        <a href="catalog.html?category=gaming" class="category-card">
+          <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=600&q=80" alt="Игровые устройства">
+          <div><span>03 / GAMING</span><h3>Gaming</h3><p>Играй без границ ↗</p></div>
+        </a>
+        <a href="catalog.html?category=audio" class="category-card">
+          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Наушники">
+          <div><span>04 / AUDIO</span><h3>Аудио</h3><p>Почувствуй звук ↗</p></div>
+        </a>
+        <a href="catalog.html?category=wearables" class="category-card">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Умные часы">
+          <div><span>05 / LIFESTYLE</span><h3>Smart Watch</h3><p>Всё под контролем ↗</p></div>
+        </a>
+        <a href="catalog.html?category=home" class="category-card">
+          <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" alt="Товары для дома">
+          <div><span>06 / HOME</span><h3>Для дома</h3><p>Комфорт каждый день ↗</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="promo-banner container">
+      <div class="promo-copy">
+        <span class="eyebrow">NEXORA SPECIAL / LIMITED TIME</span>
+        <h2>Большие идеи.<br><span>Меньше цены.</span></h2>
+        <p>Откройте специальные предложения на избранные устройства и аксессуары.</p>
+        <a href="deals.html" class="btn btn-light">Смотреть предложения ↗</a>
+      </div>
+      <div class="promo-art">
+        <div class="promo-circle"></div>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85" alt="Спортивная обувь со скидкой">
+        <div class="discount-sticker">UP TO<br><strong>50%</strong><br>OFF</div>
+      </div>
+    </section>
+
+    <section class="section container" id="featured">
+      <div class="section-heading">
+        <div><span class="eyebrow">ВЫБОР ПОКУПАТЕЛЕЙ</span><h2>Популярные <span>товары.</span></h2></div>
+        <a href="catalog.html?sort=popular" class="text-link">Весь каталог ↗</a>
+      </div>
+      <div class="product-tabs" id="productTabs">
+        <button class="tab active" data-category="all">Все товары</button>
+        <button class="tab" data-category="smartphones">Смартфоны</button>
+        <button class="tab" data-category="laptops">Ноутбуки</button>
+        <button class="tab" data-category="audio">Аудио</button>
+        <button class="tab" data-category="gaming">Gaming</button>
+      </div>
+      <div class="product-grid" id="featuredProducts"></div>
+      <div class="center-action"><a href="catalog.html" class="btn btn-outline">Открыть весь каталог <span>↗</span></a></div>
+    </section>
+
+    <section class="flash-section">
+      <div class="container">
+        <div class="section-heading">
+          <div><span class="eyebrow">НЕ УПУСТИ ВОЗМОЖНОСТЬ</span><h2>Горячие <span>предложения.</span></h2></div>
+          <div class="countdown" id="countdown"><div><strong>00</strong><small>Дней</small></div><b>:</b><div><strong>00</strong><small>Часов</small></div><b>:</b><div><strong>00</strong><small>Минут</small></div><b>:</b><div><strong>00</strong><small>Секунд</small></div></div>
+        </div>
+        <div class="product-grid" id="dealProducts"></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-heading">
+        <div><span class="eyebrow">ТОЛЬКО ПОСТУПИЛИ</span><h2>Свежие <span>новинки.</span></h2></div>
+        <a href="catalog.html?sort=new" class="text-link">Все новинки ↗</a>
+      </div>
+      <div class="product-grid" id="newProducts"></div>
+    </section>
+
+    <section class="brands-section container">
+      <div class="section-heading">
+        <div><span class="eyebrow">МИРОВЫЕ ПРОИЗВОДИТЕЛИ</span><h2>Бренды, которым <span>доверяют.</span></h2></div>
+        <a href="brands.html" class="text-link">Все бренды ↗</a>
+      </div>
+      <div class="brand-grid">
+        <a href="catalog.html?brand=Apple" class="brand-card">Apple<span>Technology</span></a>
+        <a href="catalog.html?brand=Samsung" class="brand-card">SAMSUNG<span>Innovation</span></a>
+        <a href="catalog.html?brand=Sony" class="brand-card">SONY<span>Entertainment</span></a>
+        <a href="catalog.html?brand=ASUS" class="brand-card">ASUS<span>In Search of Incredible</span></a>
+        <a href="catalog.html?brand=Logitech" class="brand-card">logitech<span>Designed to make you feel</span></a>
+        <a href="catalog.html?brand=Xiaomi" class="brand-card">Xiaomi<span>Innovation for everyone</span></a>
+      </div>
+    </section>
+
+    <section class="newsletter-section">
+      <div class="container newsletter-inner">
+        <div><span class="eyebrow">NEXORA INSIDER</span><h2>Будь на шаг <span>впереди.</span></h2><p>Подпишитесь на новости о новых поступлениях, специальных предложениях и технологиях.</p></div>
+        <form class="newsletter-form" id="newsletterForm"><label for="newsletterEmail">Ваш email</label><div><input type="email" id="newsletterEmail" placeholder="you@example.com" required><button type="submit">Подписаться ↗</button></div><small>Подписываясь, вы соглашаетесь с нашей политикой конфиденциальности.</small></form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><p>Технологии, дизайн и стиль для жизни нового поколения.</p><div class="social-links"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="Telegram">tg</a><a href="#" aria-label="YouTube">yt</a><a href="#" aria-label="Discord">dc</a></div></div>
+        <div class="footer-column"><h4>Магазин</h4><a href="catalog.html">Все товары</a><a href="categories.html">Категории</a><a href="brands.html">Бренды</a><a href="deals.html">Акции</a><a href="wishlist.html">Избранное</a></div>
+        <div class="footer-column"><h4>Покупателям</h4><a href="delivery.html">Доставка и оплата</a><a href="orders.html">Мои заказы</a><a href="contact.html">Возврат товара</a><a href="faq.html">Частые вопросы</a><a href="support.html">Поддержка</a></div>
+        <div class="footer-column"><h4>Компания</h4><a href="about.html">О NEXORA</a><a href="contact.html">Контакты</a><a href="privacy.html">Конфиденциальность</a><a href="terms.html">Условия использования</a></div>
+        <div class="footer-column"><h4>Свяжитесь с нами</h4><p>Пн–Вс, 09:00–21:00</p><a href="mailto:support@nexora.example">support@nexora.example</a><a href="tel:+998000000000">+998 (00) 000-00-00</a><div class="payment-methods"><span>VISA</span><span>Mastercard</span><span>UZCARD</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 NEXORA. Демонстрационный интернет-магазин.</span><span>Создано для нового поколения. ✦</span></div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+  <script src="js/products.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

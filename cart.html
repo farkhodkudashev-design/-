@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Корзина — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .cart-layout{display:grid;grid-template-columns:1fr 330px;gap:25px;padding-bottom:80px}
+    .cart-list{display:grid;gap:12px}
+    .cart-item{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:center;padding:17px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+    .cart-item img{width:110px;height:105px;object-fit:contain;border-radius:10px;background:var(--surface-alt)}
+    .cart-item h3{margin:5px 0;font-size:15px}
+    .cart-item p{margin:0;color:var(--muted);font-size:11px}
+    .cart-qty{display:flex;align-items:center;gap:12px;margin-top:12px}
+    .cart-qty button{width:29px;height:29px;border:1px solid var(--line);border-radius:7px;background:var(--surface)}
+    .cart-remove{border:0;background:transparent;color:var(--danger);font-size:11px}
+    .cart-summary{align-self:start;padding:24px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+    .cart-summary h2{margin-bottom:22px;font-size:23px}
+    .summary-row{display:flex;justify-content:space-between;gap:12px;margin:15px 0;font-size:12px}
+    .summary-total{padding-top:16px;border-top:1px solid var(--line);font-size:17px;font-weight:800}
+    .cart-summary .btn{width:100%;margin-top:15px}
+    @media(max-width:750px){.cart-layout{grid-template-columns:1fr}.cart-item{grid-template-columns:80px 1fr}.cart-item img{width:80px;height:90px}.cart-item-price{grid-column:2}.cart-summary{position:static}}
+  </style>
+</head>
+<body>
+  <header class="header"><div class="header-main container">
+    <a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a>
+    <a href="catalog.html" class="text-link">← Продолжить покупки</a>
+  </div></header>
+
+  <main class="container">
+    <section class="page-intro"><span class="eyebrow">NEXORA / YOUR SELECTION</span><h1>Ваша <span style="color:var(--accent-dark)">корзина.</span></h1><p>Проверьте товары перед оформлением заказа.</p></section>
+    <div class="cart-layout">
+      <section><div class="cart-list" id="cartItems"></div></section>
+      <aside class="cart-summary">
+        <h2>Ваш заказ</h2>
+        <div class="summary-row"><span>Товары</span><strong id="cartSubtotal">—</strong></div>
+        <div class="summary-row"><span>Скидка</span><strong id="cartDiscount">—</strong></div>
+        <div class="summary-row"><span>Доставка</span><strong id="cartShipping">Рассчитывается далее</strong></div>
+        <div class="summary-row summary-total"><span>Итого</span><strong id="cartGrandTotal">—</strong></div>
+        <a href="checkout.html" class="btn btn-dark" id="checkoutLink">Перейти к оформлению ↗</a>
+        <p style="margin-top:15px;color:var(--muted);font-size:10px">Стоимость доставки будет уточнена при оформлении заказа.</p>
+      </aside>
+    </div>
+  </main>
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/products.js"></script><script src="js/currency.js"></script><script src="js/cart.js"></script><script src="js/wishlist.js"></script><script src="js/app.js"></script><script src="js/cart-page.js"></script>
+</body>
+</html>

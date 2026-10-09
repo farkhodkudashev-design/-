@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Админ-панель — NEXORA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><span class="eyebrow">ADMIN DEMO</span></div></header>
+<main class="container">
+<section class="page-intro"><span class="eyebrow">MANAGEMENT CONSOLE</span><h1>Панель <span style="color:var(--accent-dark)">управления.</span></h1><p>Демонстрационная статистика товаров и заказов.</p></section>
+<div class="stats-grid">
+<div class="stat-card"><span>Товары</span><strong id="adminProductCount">0</strong></div>
+<div class="stat-card"><span>Заказы</span><strong id="adminOrderCount">0</strong></div>
+<div class="stat-card"><span>Пользователи</span><strong id="adminUserCount">0</strong></div>
+</div>
+<section class="section" style="padding-bottom:80px">
+<div class="section-heading"><h2>Последние <span style="color:var(--accent-dark)">заказы.</span></h2></div>
+<div id="adminOrders"></div>
+<div class="section-heading" style="margin-top:35px"><h2>Каталог <span style="color:var(--accent-dark)">товаров.</span></h2></div>
+<div class="catalog-toolbar"><input id="adminSearch" placeholder="Поиск товара..." style="padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--text)"><button class="btn btn-outline" id="exportProducts">Экспорт JSON ↗</button></div>
+<div class="product-grid" id="adminProducts"></div>
+<p style="color:var(--muted);font-size:11px;margin-top:20px">Это демонстрационная панель без серверной защиты. Она не изменяет каталог в базе данных и не предназначена для настоящего администрирования.</p>
+</section>
+</main>
+<script src="js/products.js"></script><script src="js/currency.js"></script><script src="js/admin.js"></script>
+</body>
+</html>

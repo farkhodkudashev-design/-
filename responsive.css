@@ -1,0 +1,148 @@
+
+@media (max-width: 1150px) {
+  .container { width: min(100% - 40px, 1380px); }
+  .header-main { gap: 20px; }
+  .header-actions { gap: 7px; }
+  .navigation { gap: 20px; }
+  .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brand-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-main { grid-template-columns: repeat(3, 1fr); }
+  .footer-brand { grid-column: span 3; }
+}
+
+@media (max-width: 850px) {
+  .container { width: calc(100% - 32px); }
+  .header-main { min-height: 72px; flex-wrap: wrap; gap: 12px; padding-block: 12px; }
+  .logo { font-size: 25px; }
+  .mobile-menu-btn { display: inline-flex; }
+  .search-box { order: 3; flex-basis: 100%; }
+  .header-actions { margin-left: auto; }
+  .navigation {
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding-block: 8px 18px;
+  }
+  .navigation.open { display: flex; }
+  .navigation a { padding: 12px 4px; border-bottom: 1px solid var(--line); }
+  .nav-spacer, .delivery-note { display: none; }
+
+  .hero { grid-template-columns: 1fr .8fr; min-height: 420px; }
+  .hero-content { padding: 40px 0 30px 30px; }
+  .hero h1 { font-size: clamp(37px, 6vw, 56px); }
+  .hero-visual > img { height: 300px; }
+  .hero-glow { width: 250px; height: 250px; }
+  .hero-badge { top: 20px; right: 12px; }
+  .hero-floating-card { left: 0; bottom: 30px; }
+  .hero-trust { flex-wrap: wrap; }
+
+  .benefits { grid-template-columns: repeat(2, 1fr); }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-large { grid-row: span 2; min-height: 450px; }
+  .category-card { min-height: 215px; }
+  .promo-banner { grid-template-columns: 1fr .75fr; }
+  .promo-copy { padding-left: 30px; }
+  .promo-circle { width: 220px; height: 220px; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-image { height: 220px; }
+  .newsletter-inner { grid-template-columns: 1fr; gap: 25px; }
+  .catalog-layout { grid-template-columns: 210px minmax(0,1fr); gap: 15px; }
+}
+
+@media (max-width: 560px) {
+  .container { width: calc(100% - 28px); }
+  .announcement { gap: 5px; font-size: 9px; }
+  .announcement-separator { display: none; }
+  .header-main { gap: 7px; }
+  .header-actions { gap: 2px; }
+  .header-icon, .icon-btn { width: 32px; height: 34px; font-size: 17px; }
+  .compact-select { gap: 0; }
+  .compact-select select { max-width: 46px; font-size: 9px; }
+  .theme-btn { display: none; }
+  .search-box { height: 43px; }
+  .search-submit { padding: 9px 12px; font-size: 10px; }
+
+  .hero { display: flex; flex-direction: column; margin-top: 14px; border-radius: 17px; }
+  .hero-content { padding: 29px 22px 15px; }
+  .hero h1 { margin: 15px 0; font-size: clamp(37px, 10vw, 50px); }
+  .hero-content > p { font-size: 12px; }
+  .hero-buttons { gap: 8px; margin-top: 20px; }
+  .btn { min-height: 44px; padding-inline: 14px; font-size: 10px; }
+  .hero-trust { gap: 8px; margin-top: 22px; }
+  .hero-visual { min-height: 255px; }
+  .hero-visual > img { width: 72%; height: 250px; }
+  .hero-glow { width: 210px; height: 210px; }
+  .hero-badge { top: 12px; right: 10px; padding: 8px 10px; }
+  .hero-badge > span { font-size: 17px; }
+  .hero-badge strong { font-size: 7px; }
+  .hero-floating-card { bottom: 14px; left: 10px; padding: 8px 10px; }
+  .hero-side-label { display: none; }
+  .hero-arrow { display: grid; place-items: center; }
+  .hero-prev { top: auto; bottom: 15px; left: auto; right: 58px; transform: none; }
+  .hero-next { top: auto; bottom: 15px; right: 14px; transform: none; }
+
+  .benefits { gap: 16px 10px; padding-top: 22px; }
+  .benefit { align-items: flex-start; gap: 8px; }
+  .benefit-icon { width: 35px; height: 35px; font-size: 17px; border-radius: 10px; }
+  .benefit strong { font-size: 9px; }
+  .benefit small { font-size: 8px; }
+
+  .section { padding-top: 55px; }
+  .section-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+  .section-heading h2 { font-size: 30px; }
+  .category-grid { gap: 9px; }
+  .category-card { min-height: 170px; border-radius: 12px; }
+  .category-large { min-height: 350px; }
+  .category-card > div { right: 11px; bottom: 13px; left: 11px; }
+  .category-card h3 { font-size: 17px; }
+  .category-card p { font-size: 9px; }
+  .category-card > div > span { font-size: 7px; }
+
+  .promo-banner { grid-template-columns: 1fr; margin-top: 55px; }
+  .promo-copy { padding: 32px 24px 0; }
+  .promo-copy h2 { font-size: 38px; }
+  .promo-art { min-height: 220px; }
+  .promo-art img { max-height: 240px; width: 75%; }
+  .promo-circle { width: 190px; height: 190px; }
+  .discount-sticker { top: 8px; right: 20px; width: 72px; height: 72px; }
+  .discount-sticker strong { font-size: 20px; }
+
+  .product-tabs { gap: 6px; }
+  .tab { padding: 8px 12px; font-size: 9px; }
+  .product-grid { gap: 9px; }
+  .product-card { border-radius: 12px; }
+  .product-image { height: 155px; }
+  .product-image > img { width: 85%; height: 80%; }
+  .product-info { padding: 10px; }
+  .product-name { min-height: 38px; font-size: 10px; }
+  .product-price { font-size: 12px; }
+  .product-old-price { font-size: 9px; }
+  .product-badges { top: 7px; left: 7px; }
+  .product-badge { padding: 4px 5px; font-size: 7px; }
+  .product-tools { top: 7px; right: 7px; gap: 4px; }
+  .product-tool { width: 27px; height: 27px; font-size: 14px; }
+  .add-cart-btn { font-size: 9px; padding: 9px 4px; }
+  .quick-view-btn { width: 30px; }
+  .product-stock { font-size: 8px; }
+  .flash-section { margin-top: 55px; padding: 42px 0; }
+  .countdown { gap: 5px; }
+  .countdown > div { min-width: 35px; padding: 6px 4px; }
+  .countdown strong { font-size: 15px; }
+  .countdown small { font-size: 7px; }
+  .brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .brand-card { min-height: 90px; font-size: 17px; }
+  .brands-section { padding-top: 55px; }
+  .newsletter-section { margin-top: 55px; padding: 40px 0; }
+  .newsletter-inner h2 { font-size: 30px; }
+  .newsletter-form > div { flex-direction: column; }
+  .newsletter-form button { min-height: 42px; }
+  .footer-main { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 27px 18px; }
+  .footer-brand { grid-column: span 2; }
+  .footer-column h4 { font-size: 11px; }
+  .footer-column a, .footer-column p { font-size: 9px; }
+  .footer-bottom { flex-direction: column; gap: 7px; font-size: 8px; }
+  .catalog-layout { grid-template-columns: 1fr; }
+  .filter-panel { display: none; }
+  .catalog-toolbar { align-items: flex-start; flex-direction: column; }
+}

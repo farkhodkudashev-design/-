@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личный кабинет — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .dashboard-grid{display:grid;grid-template-columns:240px 1fr;gap:22px;padding-bottom:80px}
+    .dashboard-menu,.dashboard-card{padding:22px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+    .dashboard-menu a,.dashboard-menu button{display:block;width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;font-size:12px}
+    .dashboard-menu a:hover,.dashboard-menu button:hover{color:var(--accent-dark)}
+    .dashboard-content{display:grid;gap:20px}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .stat-card{padding:20px;border:1px solid var(--line);border-radius:13px;background:var(--surface)}
+    .stat-card span{color:var(--muted);font-size:11px}
+    .stat-card strong{display:block;margin-top:10px;font-size:25px}
+    .profile-fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .profile-fields label{display:grid;gap:7px;font-size:11px}
+    .profile-fields input{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}
+    @media(max-width:650px){.dashboard-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.profile-fields{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><a href="cart.html">🛒 Корзина</a></div></header>
+<main class="container">
+  <section class="page-intro"><span class="eyebrow">YOUR NEXORA ACCOUNT</span><h1>Личный <span style="color:var(--accent-dark)">кабинет.</span></h1><p>Управляйте профилем, заказами и избранными товарами.</p></section>
+  <div class="dashboard-grid">
+    <nav class="dashboard-menu">
+      <a href="profile.html">👤 Мой профиль</a>
+      <a href="orders.html">📦 Мои заказы</a>
+      <a href="wishlist.html">♡ Избранное</a>
+      <a href="cart.html">🛒 Корзина</a>
+      <a href="support.html">☏ Поддержка</a>
+      <button id="logoutButton">↪ Выйти из аккаунта</button>
+    </nav>
+    <section class="dashboard-content">
+      <div class="dashboard-card">
+        <span class="eyebrow">ACCOUNT OVERVIEW</span>
+        <h2 id="profileGreeting" style="margin:12px 0">Добро пожаловать!</h2>
+        <p id="profileEmail" style="color:var(--muted)">Ваш демонстрационный профиль</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><span>Мои заказы</span><strong id="orderCount">0</strong></div>
+        <div class="stat-card"><span>Избранное</span><strong id="favoriteCount">0</strong></div>
+        <div class="stat-card"><span>Бонусные баллы</span><strong id="bonusPoints">0</strong></div>
+      </div>
+      <form class="dashboard-card" id="profileForm">
+        <h2 style="font-size:22px;margin-bottom:22px">Личные данные</h2>
+        <div class="profile-fields">
+          <label>Имя<input id="profileFirstName" name="firstName" required></label>
+          <label>Фамилия<input id="profileLastName" name="lastName" required></label>
+          <label>Email<input id="profileEmailInput" name="email" type="email" readonly></label>
+          <label>Телефон<input id="profilePhone" name="phone" type="tel"></label>
+        </div>
+        <button class="btn btn-dark" type="submit" style="margin-top:20px">Сохранить изменения</button>
+      </form>
+    </section>
+  </div>
+</main>
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/profile.js"></script>
+</body>
+</html>

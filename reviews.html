@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Отзывы — NEXORA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css"></head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a></div></header>
+<main class="container">
+<section class="page-intro"><span class="eyebrow">CUSTOMER REVIEWS</span><h1>Отзывы <span style="color:var(--accent-dark)">покупателей.</span></h1><p>Поделитесь мнением о товарах из каталога.</p></section>
+<section class="dashboard-card" style="max-width:700px;margin-bottom:30px">
+<h2 style="font-size:22px">Оставить отзыв</h2>
+<form id="reviewForm" class="auth-form">
+<label>Товар<select id="reviewProduct" required></select></label>
+<label>Ваша оценка<select id="reviewRating"><option value="5">★★★★★ — Отлично</option><option value="4">★★★★☆ — Хорошо</option><option value="3">★★★☆☆ — Нормально</option><option value="2">★★☆☆☆ — Плохо</option><option value="1">★☆☆☆☆ — Очень плохо</option></select></label>
+<label>Ваш отзыв<textarea id="reviewText" required minlength="5" rows="4" style="padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)"></textarea></label>
+<label>Фото (демо-предпросмотр)<input id="reviewPhoto" type="file" accept="image/*"></label>
+<img id="reviewPhotoPreview" alt="Предпросмотр фотографии" style="display:none;width:100px;border-radius:10px">
+<button class="btn btn-dark" type="submit">Опубликовать отзыв</button>
+</form>
+<p style="color:var(--muted);font-size:10px;margin-top:12px">Отзывы сохраняются только в этом браузере. Для публикации отзывов между пользователями необходим backend.</p>
+</section>
+<div id="reviewsList" style="padding-bottom:80px"></div>
+</main>
+<script src="js/products.js"></script><script src="js/reviews.js"></script>
+</body>
+</html>

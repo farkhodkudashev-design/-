@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты — NEXORA</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a></div></header>
+<main class="container">
+<section class="page-intro"><span class="eyebrow">GET IN TOUCH</span><h1>Свяжитесь <span style="color:var(--accent-dark)">с нами.</span></h1><p>Задайте вопрос о товарах, заказах или работе магазина.</p></section>
+<div class="catalog-layout" style="padding-bottom:80px">
+<section class="dashboard-card">
+<h2 style="font-size:24px">Напишите нам</h2>
+<form id="contactForm" class="auth-form">
+<label>Ваше имя<input name="name" required minlength="2"></label>
+<label>Email<input name="email" type="email" required></label>
+<label>Тема<select name="topic"><option>Вопрос о товаре</option><option>Мой заказ</option><option>Доставка</option><option>Возврат</option><option>Другое</option></select></label>
+<label>Сообщение<textarea name="message" rows="5" required minlength="10" style="padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)"></textarea></label>
+<button class="btn btn-dark" type="submit">Отправить сообщение ↗</button>
+</form>
+<p id="contactStatus" style="margin-top:15px;color:var(--muted)"></p>
+</section>
+<aside class="dashboard-card"><h2 style="font-size:24px">Контактная информация</h2><p>Email: support@nexora.example</p><p>Телефон: +998 (00) 000-00-00</p><p>Время работы: ежедневно, 09:00–21:00</p><p style="color:var(--muted);font-size:11px">Контактные данные демонстрационные.</p></aside>
+</div>
+</main>
+<script>
+document.getElementById("contactForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ if(!this.reportValidity())return;
+ document.getElementById("contactStatus").textContent="Форма проверена. Для реальной отправки необходимо подключить сервер.";
+ this.reset();
+});
+</script>
+</body>
+</html>

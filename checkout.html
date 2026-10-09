@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оформление заказа — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .checkout-layout{display:grid;grid-template-columns:1fr 350px;gap:30px;padding-bottom:80px}
+    .checkout-card{padding:25px;border:1px solid var(--line);border-radius:16px;background:var(--surface);margin-bottom:18px}
+    .checkout-card h2{font-size:21px;margin-bottom:20px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .field{display:grid;gap:7px}
+    .field.full{grid-column:1/-1}
+    .field label{font-size:11px;font-weight:700}
+    .field input,.field select,.field textarea{width:100%;min-height:43px;padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--text)}
+    .choice{display:flex;align-items:center;gap:10px;padding:13px;margin:9px 0;border:1px solid var(--line);border-radius:10px;font-size:12px}
+    .choice:has(input:checked){border-color:var(--accent-dark);background:var(--surface-alt)}
+    .checkout-summary{align-self:start;padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+    @media(max-width:750px){.checkout-layout{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><a href="cart.html">← Назад в корзину</a></div></header>
+<main class="container">
+  <section class="page-intro"><span class="eyebrow">NEXORA / CHECKOUT</span><h1>Оформление <span style="color:var(--accent-dark)">заказа.</span></h1><p>Заполните контактные данные и выберите удобный способ доставки.</p></section>
+  <div class="checkout-layout">
+    <form id="checkoutForm">
+      <section class="checkout-card">
+        <h2>1. Контактные данные</h2>
+        <div class="form-grid">
+          <div class="field"><label for="firstName">Имя *</label><input id="firstName" name="firstName" required autocomplete="given-name"></div>
+          <div class="field"><label for="lastName">Фамилия *</label><input id="lastName" name="lastName" required autocomplete="family-name"></div>
+          <div class="field"><label for="phone">Телефон *</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+998 90 123 45 67"></div>
+          <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+      </section>
+      <section class="checkout-card">
+        <h2>2. Адрес доставки</h2>
+        <div class="form-grid">
+          <div class="field"><label for="country">Страна</label><select id="country" name="country"><option>Узбекистан</option><option>Россия</option><option>Другая страна</option></select></div>
+          <div class="field"><label for="city">Город *</label><input id="city" name="city" required autocomplete="address-level2"></div>
+          <div class="field full"><label for="address">Адрес *</label><input id="address" name="address" required autocomplete="street-address"></div>
+          <div class="field"><label for="apartment">Квартира / офис</label><input id="apartment" name="apartment"></div>
+          <div class="field"><label for="postalCode">Почтовый индекс</label><input id="postalCode" name="postalCode" autocomplete="postal-code"></div>
+        </div>
+      </section>
+      <section class="checkout-card">
+        <h2>3. Способ доставки</h2>
+        <label class="choice"><input type="radio" name="delivery" value="standard" checked> 🚚 Стандартная доставка — 3–5 дней</label>
+        <label class="choice"><input type="radio" name="delivery" value="express"> ⚡ Экспресс-доставка — 1–2 дня</label>
+        <label class="choice"><input type="radio" name="delivery" value="pickup"> 📦 Самовывоз — уточнить адрес</label>
+      </section>
+      <section class="checkout-card">
+        <h2>4. Способ оплаты</h2>
+        <label class="choice"><input type="radio" name="payment" value="card" checked> 💳 Банковская карта</label>
+        <label class="choice"><input type="radio" name="payment" value="cash"> 💵 Наличные при получении</label>
+        <label class="choice"><input type="radio" name="payment" value="wallet"> 📱 Электронный кошелёк</label>
+        <label class="choice"><input type="radio" name="payment" value="transfer"> 🏦 Банковский перевод</label>
+        <p style="color:var(--muted);font-size:10px">Демонстрационный проект: реальное списание средств не производится.</p>
+      </section>
+      <label class="choice"><input type="checkbox" id="agreeTerms" required> Я согласен с условиями заказа и политикой конфиденциальности.</label>
+      <button class="btn btn-dark" style="width:100%" type="submit">Подтвердить заказ ↗</button>
+    </form>
+    <aside class="checkout-summary">
+      <h2>Ваш заказ</h2>
+      <div id="checkoutItems"></div>
+      <div class="summary-row"><span>Товары</span><strong id="checkoutSubtotal">—</strong></div>
+      <div class="summary-row"><span>Доставка</span><strong id="checkoutShipping">—</strong></div>
+      <div class="summary-row summary-total"><span>Итого</span><strong id="checkoutTotal">—</strong></div>
+    </aside>
+  </div>
+</main>
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/products.js"></script><script src="js/currency.js"></script><script src="js/cart.js"></script><script src="js/checkout.js"></script>
+</body>
+</html>

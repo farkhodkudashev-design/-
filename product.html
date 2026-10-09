@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Товар — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .product-detail { display:grid; grid-template-columns:1fr 1fr; gap:45px; padding:50px 0 90px; }
+    .detail-image { display:grid; place-items:center; min-height:430px; padding:30px; border-radius:20px; background:var(--surface-alt); }
+    .detail-image img { max-height:390px; object-fit:contain; }
+    .detail-info h1 { margin:14px 0; font-size:clamp(30px,4vw,46px); }
+    .detail-price { margin:25px 0; font-size:30px; font-weight:800; }
+    .detail-old { margin-left:10px; color:var(--muted); font-size:16px; text-decoration:line-through; }
+    .detail-info p { color:var(--muted); line-height:1.9; }
+    .quantity-control { display:flex; align-items:center; gap:15px; margin:25px 0; }
+    .quantity-control button { width:38px; height:38px; border:1px solid var(--line); border-radius:9px; background:var(--surface); }
+    .detail-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .spec-list { margin-top:30px; border-top:1px solid var(--line); }
+    .spec-row { display:flex; justify-content:space-between; gap:15px; padding:12px 0; border-bottom:1px solid var(--line); font-size:12px; }
+    .spec-row span:first-child { color:var(--muted); }
+    @media(max-width:700px) { .product-detail { grid-template-columns:1fr; gap:25px; padding-top:25px; } .detail-image { min-height:280px; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-main container">
+      <a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a>
+      <a class="header-icon" href="wishlist.html">♡<span class="counter" id="wishlistCount">0</span></a>
+      <a class="header-icon" href="cart.html">🛒<span class="counter" id="cartCount">0</span></a>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="page-intro"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <span id="breadcrumb">Товар</span></p>
+    <section class="product-detail" id="productDetail">
+      <div class="detail-image"><img id="detailImage" alt="Товар"></div>
+      <div class="detail-info">
+        <span class="eyebrow" id="detailBrand">NEXORA SELECTION</span>
+        <h1 id="detailName">Загрузка товара...</h1>
+        <div class="product-rating"><span class="star">★</span><strong id="detailRating">—</strong><span class="reviews" id="detailReviews"></span></div>
+        <div class="detail-price"><span id="detailPrice"></span><span class="detail-old" id="detailOldPrice"></span></div>
+        <p id="detailDescription">Качественный товар из коллекции NEXORA.</p>
+        <p class="product-stock" id="detailStock"></p>
+        <div class="quantity-control">
+          <span>Количество</span>
+          <button id="quantityMinus" aria-label="Уменьшить количество">−</button>
+          <strong id="quantityValue">1</strong>
+          <button id="quantityPlus" aria-label="Увеличить количество">+</button>
+        </div>
+        <div class="detail-actions">
+          <button class="btn btn-dark" id="addDetailCart">Добавить в корзину ↗</button>
+          <button class="btn btn-outline" id="buyNow">Купить сейчас</button>
+          <button class="btn btn-outline" id="detailFavorite">♡ В избранное</button>
+        </div>
+        <div class="spec-list">
+          <div class="spec-row"><span>Бренд</span><strong id="specBrand">—</strong></div>
+          <div class="spec-row"><span>Категория</span><strong id="specCategory">—</strong></div>
+          <div class="spec-row"><span>Артикул</span><strong id="specId">—</strong></div>
+          <div class="spec-row"><span>Доставка</span><strong>По Узбекистану</strong></div>
+          <div class="spec-row"><span>Возврат</span><strong>По условиям магазина</strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="section-heading"><h2>Вам также <span>понравится.</span></h2></div>
+      <div class="product-grid" id="relatedProducts"></div>
+    </section>
+  </main>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/products.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>

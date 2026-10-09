@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог товаров — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-main container">
+      <a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a>
+      <form class="search-box" id="searchForm">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search" placeholder="Поиск товаров..." autocomplete="off">
+        <button class="search-submit">Найти</button>
+        <div class="search-results" id="searchResults"></div>
+      </form>
+      <div class="header-actions">
+        <label class="compact-select"><select id="languageSelect"><option value="ru">RU</option><option value="uz">UZ</option><option value="en">EN</option><option value="tr">TR</option><option value="de">DE</option><option value="es">ES</option><option value="zh">中文</option><option value="ko">한국어</option></select></label>
+        <label class="compact-select"><select id="currencySelect"><option value="UZS">UZS</option><option value="RUB">RUB</option><option value="USD">USD</option></select></label>
+        <a class="header-icon" href="wishlist.html">♡<span class="counter" id="wishlistCount">0</span></a>
+        <a class="header-icon" href="cart.html">🛒<span class="counter" id="cartCount">0</span></a>
+      </div>
+    </div>
+    <nav class="navigation container">
+      <a href="index.html">Главная</a><a href="categories.html">Категории</a><a href="brands.html">Бренды</a><a href="deals.html">Акции</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-intro">
+      <span class="eyebrow">NEXORA / DISCOVER</span>
+      <h1>Каталог <span style="color:var(--accent-dark)">товаров.</span></h1>
+      <p>Найди подходящий товар среди наших коллекций.</p>
+    </section>
+
+    <div class="catalog-layout">
+      <aside class="filter-panel">
+        <h3>Фильтры</h3>
+        <div class="filter-group">
+          <h3>Категория</h3>
+          <div id="categoryFilters"></div>
+        </div>
+        <div class="filter-group">
+          <h3>Бренд</h3>
+          <div id="brandFilters"></div>
+        </div>
+        <div class="filter-group">
+          <h3>Цена (сум)</h3>
+          <label for="minPrice">От <span id="minPriceLabel">0</span></label>
+          <input type="range" id="minPrice" min="0" max="25000000" step="100000" value="0">
+          <label for="maxPrice">До <span id="maxPriceLabel">25 000 000</span></label>
+          <input type="range" id="maxPrice" min="100000" max="25000000" step="100000" value="25000000">
+        </div>
+        <div class="filter-group">
+          <h3>Рейтинг</h3>
+          <label><input type="checkbox" class="rating-filter" value="4"> 4★ и выше</label>
+          <label><input type="checkbox" class="rating-filter" value="4.5"> 4.5★ и выше</label>
+        </div>
+        <div class="filter-group">
+          <h3>Наличие</h3>
+          <label><input type="checkbox" id="inStock"> Только в наличии</label>
+        </div>
+        <div class="filter-group">
+          <h3>Скидки</h3>
+          <label><input type="checkbox" id="discountOnly"> Только со скидкой</label>
+        </div>
+        <button class="btn btn-outline" id="resetFilters" style="width:100%">Сбросить фильтры</button>
+      </aside>
+
+      <section>
+        <div class="catalog-toolbar">
+          <strong id="resultCount">Загружаем товары...</strong>
+          <select id="sortSelect" aria-label="Сортировка">
+            <option value="popular">Сначала популярные</option>
+            <option value="priceAsc">Сначала дешевле</option>
+            <option value="priceDesc">Сначала дороже</option>
+            <option value="rating">По рейтингу</option>
+            <option value="new">Новинки</option>
+            <option value="discount">По размеру скидки</option>
+          </select>
+        </div>
+        <div class="product-grid" id="catalogProducts"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <div class="footer-bottom"><span>© 2026 NEXORA</span><a href="index.html">Вернуться на главную ↑</a></div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/currency.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/catalog.js"></script>
+</body>
+</html>

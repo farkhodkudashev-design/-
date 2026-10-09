@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Регистрация — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .auth-wrap{min-height:80vh;display:grid;place-items:center;padding:35px 0}
+    .auth-card{width:min(470px,100%);padding:35px;border:1px solid var(--line);border-radius:20px;background:var(--surface)}
+    .auth-card h1{font-size:35px;margin:20px 0 10px}
+    .auth-card>p{color:var(--muted);font-size:12px}
+    .auth-form{display:grid;gap:15px;margin-top:25px}
+    .auth-form label{display:grid;gap:7px;font-size:11px;font-weight:700}
+    .auth-form input:not([type=checkbox]){width:100%;padding:13px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--text)}
+    .auth-form .btn{width:100%}
+    .auth-foot{text-align:center;margin-top:22px;font-size:12px}
+    .auth-foot a{font-weight:800;color:var(--accent-dark)}
+    .auth-check{display:flex;align-items:flex-start;gap:9px;color:var(--muted);font-weight:400!important}
+    .auth-social{display:grid;gap:9px;margin-top:14px}
+    .auth-social button{padding:12px;border:1px solid var(--line);border-radius:9px;background:var(--surface);font-size:12px}
+    .auth-divider{text-align:center;color:var(--muted);font-size:10px;margin-top:15px}
+  </style>
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><a href="index.html">← На главную</a></div></header>
+<main class="container auth-wrap">
+  <section class="auth-card">
+    <span class="eyebrow">JOIN THE NEXORA COMMUNITY</span>
+    <h1>Создать аккаунт.</h1>
+    <p>Зарегистрируйтесь, чтобы сохранять избранное и отслеживать заказы.</p>
+    <form class="auth-form" id="registerForm">
+      <label>Имя<input name="firstName" required autocomplete="given-name" minlength="2"></label>
+      <label>Фамилия<input name="lastName" required autocomplete="family-name" minlength="2"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Телефон<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label>Пароль<input name="password" type="password" required minlength="8" autocomplete="new-password"></label>
+      <label>Подтверждение пароля<input name="confirmPassword" type="password" required minlength="8" autocomplete="new-password"></label>
+      <label class="auth-check"><input type="checkbox" name="terms" required> Я принимаю условия использования и политику конфиденциальности.</label>
+      <button type="submit" class="btn btn-dark">Зарегистрироваться ↗</button>
+    </form>
+    <div class="auth-divider">ИЛИ</div>
+    <div class="auth-social">
+      <button type="button" data-social="Google">G &nbsp; Continue with Google</button>
+      <button type="button" data-social="Apple">● &nbsp; Continue with Apple</button>
+    </div>
+    <div class="auth-foot">Уже есть аккаунт? <a href="login.html">Войти</a></div>
+  </section>
+</main>
+<div class="toast-container" id="toastContainer"></div>
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мои заказы — NEXORA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <style>
+    .order-card{padding:22px;margin-bottom:15px;border:1px solid var(--line);border-radius:15px;background:var(--surface)}
+    .order-head{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .order-head h3{margin-bottom:5px;font-size:16px}
+    .order-status{display:inline-block;padding:6px 10px;border-radius:20px;background:var(--surface-alt);font-size:10px;font-weight:700}
+    .order-items{display:grid;gap:10px;margin:20px 0}
+    .order-product{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+    .order-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-top:15px;border-top:1px solid var(--line)}
+  </style>
+</head>
+<body>
+<header class="header"><div class="header-main container"><a href="index.html" class="logo">NEX<span>ORA</span><i>.</i></a><a href="profile.html">← Мой профиль</a></div></header>
+<main class="container">
+  <section class="page-intro"><span class="eyebrow">ORDER HISTORY</span><h1>Мои <span style="color:var(--accent-dark)">заказы.</span></h1><p>История ваших заказов и информация об их статусе.</p></section>
+  <section id="ordersList"></section>
+</main>
+<script src="js/products.js"></script><script src="js/currency.js"></script><script src="js/orders.js"></script>
+</body>
+</html>
