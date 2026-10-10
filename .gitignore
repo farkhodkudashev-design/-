@@ -1,0 +1,7 @@
+node_modules/
+.env
+.env.*
+!.env.example
+nexora.sqlite*
+.vercel/
+npm-debug.log*

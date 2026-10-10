@@ -95,4 +95,77 @@ function initializeLanguage() {
   applyLanguage();
 }
 
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function renderProductList(containerId, products) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const wishlist = typeof getWishlist === "function" ? getWishlist() : [];
+  container.innerHTML = products.map(product => {
+    const discount = product.oldPrice > product.price
+      ? Math.round((1 - product.price / product.oldPrice) * 100)
+      : 0;
+    const badge = product.badge
+      ? `<span class="product-badge${discount ? " sale" : ""}">${escapeHTML(product.badge)}</span>`
+      : "";
+
+    return `<article class="product-card">
+      <div class="product-image">
+        <img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.name)}" loading="lazy">
+        <div class="product-badges">${badge}${discount ? `<span class="product-badge sale">−${discount}%</span>` : ""}</div>
+        <div class="product-tools"><button class="product-tool${wishlist.includes(product.id) ? " selected" : ""}" data-wishlist="${product.id}" aria-label="Избранное">♡</button></div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">${escapeHTML(product.brand)}</span>
+        <a class="product-name" href="product.html?id=${product.id}">${escapeHTML(product.name)}</a>
+        <div class="product-rating"><span class="star">★</span>${escapeHTML(product.rating)} <span class="reviews">(${escapeHTML(product.reviews)} отзывов)</span></div>
+        <div class="product-price-row"><strong class="product-price">${formatPrice(product.price)}</strong>${discount ? `<span class="product-old-price">${formatPrice(product.oldPrice)}</span>` : ""}</div>
+        <div class="product-stock">В наличии: ${escapeHTML(product.stock)}</div>
+        <div class="product-actions"><button class="add-cart-btn" data-add-to-cart="${product.id}">В корзину</button><a class="quick-view-btn" href="product.html?id=${product.id}" aria-label="Подробнее о товаре">↗</a></div>
+      </div>
+    </article>`;
+  }).join("");
+
+  container.onclick = event => {
+    const wishlistButton = event.target.closest("[data-wishlist]");
+    const cartButton = event.target.closest("[data-add-to-cart]");
+    if (wishlistButton) toggleWishlist(Number(wishlistButton.dataset.wishlist));
+    if (cartButton) addToCart(Number(cartButton.dataset.addToCart));
+  };
+}
+
+function renderProducts(category = "all") {
+  const popular = [...PRODUCTS].sort((first, second) => second.reviews - first.reviews);
+  const featured = category === "all"
+    ? popular
+    : popular.filter(product => product.category === category);
+
+  renderProductList("featuredProducts", featured.slice(0, 8));
+  renderProductList("dealProducts", PRODUCTS.filter(product => product.oldPrice > product.price).slice(0, 8));
+  renderProductList("newProducts", PRODUCTS.filter(product => product.badge === "Новинка").sort((a, b) => b.id - a.id).slice(0, 8));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderProducts();
+  document.getElementById("productTabs")?.addEventListener("click", event => {
+    const tab = event.target.closest("[data-category]");
+    if (!tab) return;
+
+    document.querySelectorAll("#productTabs .tab").forEach(item => item.classList.toggle("active", item === tab));
+    renderProducts(tab.dataset.category);
+  });
+});
+
+document.addEventListener("nexora:currencyChanged", () => renderProducts());
+document.addEventListener("nexora:wishlistChanged", () => renderProducts());
+
 document.addEventListener("DOMContentLoaded", initializeLanguage);

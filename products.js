@@ -62,3 +62,7 @@ const CATEGORIES = [
   {id:"fashion",name:"Одежда и обувь",icon:"👟"},
   {id:"accessories",name:"Аксессуары",icon:"🎒"}
 ];
+
+if (typeof module !== "undefined") {
+  module.exports = { PRODUCTS, CATEGORIES };
+}

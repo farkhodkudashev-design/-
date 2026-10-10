@@ -1,47 +1,63 @@
 
-const CURRENCY_RATES = {
-  UZS: 1,
-  RUB: 0.0057,
-  USD: 0.000079
-};
-
-const CURRENCY_LOCALES = {
-  UZS: "uz-UZ",
-  RUB: "ru-RU",
-  USD: "en-US"
-};
-
-function getCurrentCurrency() {
-  return localStorage.getItem("nexora_currency") || "UZS";
+function getCart() {
+  try {
+    const cart = JSON.parse(localStorage.getItem("nexora_cart") || "[]");
+    return Array.isArray(cart) ? cart : [];
+  } catch {
+    return [];
+  }
 }
 
-function formatPrice(priceInUZS) {
-  const currency = getCurrentCurrency();
-  const amount = priceInUZS * CURRENCY_RATES[currency];
+function saveCart(cart) {
+  localStorage.setItem("nexora_cart", JSON.stringify(cart));
+  updateCartCount();
+  document.dispatchEvent(new CustomEvent("nexora:cartChanged"));
+}
 
-  if (currency === "UZS") {
-    return new Intl.NumberFormat("uz-UZ", {
-      maximumFractionDigits: 0
-    }).format(Math.round(amount)) + " сум";
+function addToCart(productId, quantity = 1) {
+  const id = Number(productId);
+  const product = PRODUCTS.find(item => item.id === id);
+  if (!product || product.stock < 1) return;
+
+  const cart = getCart();
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.quantity = Math.min(product.stock, existing.quantity + quantity);
+  } else {
+    cart.push({ id, quantity: Math.min(product.stock, Math.max(1, quantity)) });
   }
 
-  return new Intl.NumberFormat(CURRENCY_LOCALES[currency], {
-    style: "currency",
-    currency,
-    maximumFractionDigits: currency === "USD" ? 2 : 0
-  }).format(amount);
+  saveCart(cart);
+  if (typeof showToast === "function") showToast("Товар добавлен в корзину");
 }
 
-function initializeCurrency() {
-  const select = document.getElementById("currencySelect");
-  if (!select) return;
+function changeCartQuantity(productId, difference) {
+  const id = Number(productId);
+  const cart = getCart();
+  const item = cart.find(entry => entry.id === id);
+  if (!item) return;
 
-  select.value = getCurrentCurrency();
+  const product = PRODUCTS.find(entry => entry.id === id);
+  item.quantity += difference;
+  if (item.quantity < 1 || !product || product.stock < 1) {
+    saveCart(cart.filter(entry => entry.id !== id));
+    return;
+  }
 
-  select.addEventListener("change", () => {
-    localStorage.setItem("nexora_currency", select.value);
-    document.dispatchEvent(new CustomEvent("nexora:currencyChanged"));
-  });
+  item.quantity = Math.min(item.quantity, product.stock);
+  saveCart(cart);
 }
 
-document.addEventListener("DOMContentLoaded", initializeCurrency);
+function removeFromCart(productId) {
+  const id = Number(productId);
+  saveCart(getCart().filter(item => item.id !== id));
+}
+
+function updateCartCount() {
+  const badge = document.getElementById("cartCount");
+  if (badge) {
+    badge.textContent = getCart().reduce((total, item) => total + item.quantity, 0);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", updateCartCount);

@@ -1,4 +1,3 @@
-
 function renderNewArrivals() {
   const items = PRODUCTS
     .filter(product => product.badge === "Новинка")

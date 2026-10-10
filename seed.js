@@ -2,18 +2,11 @@
 const Database = require("better-sqlite3");
 const fs = require("node:fs");
 const path = require("node:path");
+const { PRODUCTS } = require("./products.js");
 
 const db = new Database(path.join(__dirname, "nexora.sqlite"));
 db.pragma("foreign_keys = ON");
-
-const productsPath = path.join(__dirname, "data", "products.json");
-
-if (!fs.existsSync(productsPath)) {
-  console.error("Создай backend/data/products.json с массивом товаров.");
-  process.exit(1);
-}
-
-const products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
+db.exec(fs.readFileSync(path.join(__dirname, "schema.sql"), "utf8"));
 
 const insertCategory = db.prepare(
   "INSERT OR IGNORE INTO categories (name, slug) VALUES (?, ?)"
@@ -33,7 +26,7 @@ const insertProduct = db.prepare(`
 `);
 
 const seed = db.transaction(() => {
-  for (const product of products) {
+  for (const product of PRODUCTS) {
     const categoryName = product.category;
     const categorySlug = product.category;
 
@@ -64,5 +57,5 @@ const seed = db.transaction(() => {
 });
 
 seed();
-console.log(`Импортировано товаров: ${products.length}`);
+console.log(`Импортировано товаров: ${PRODUCTS.length}`);
 db.close();

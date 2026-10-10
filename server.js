@@ -17,7 +17,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET || JWT_SECRET.length < 32 ||
     JWT_SECRET === "REPLACE_WITH_A_LONG_RANDOM_SECRET") {
-  throw new Error("Укажи надёжный JWT_SECRET в backend/.env");
+  throw new Error("Set a random JWT_SECRET (at least 32 characters) in the project-root .env file.");
 }
 
 const db = new Database(path.join(__dirname, "nexora.sqlite"));
